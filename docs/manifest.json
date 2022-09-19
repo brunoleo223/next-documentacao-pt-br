@@ -1,0 +1,566 @@
+{
+  "routes": [
+    {
+      "title": "Documentation",
+      "heading": true,
+      "routes": [
+        {
+          "title": "Getting Started",
+          "path": "/getting-started"
+        },
+        {
+          "title": "Basic Features",
+          "open": true,
+          "routes": [
+            {
+              "title": "Pages",
+              "path": "/basic-features-pages"
+            },
+            {
+              "title": "Data Fetching",
+              "routes": [
+                {
+                  "path": "/basic-features-data-fetching",
+                  "redirect": {
+                    "destination": "/basic-features-data-fetching-overview"
+                  }
+                },
+                {
+                  "path": "/basic-features-data-fetching-index",
+                  "redirect": {
+                    "destination": "/basic-features-data-fetching-overview"
+                  }
+                },
+                {
+                  "title": "Overview",
+                  "path": "/basic-features-data-fetching-overview"
+                },
+                {
+                  "title": "getServerSideProps",
+                  "path": "/basic-features-data-fetching-get-server-side-props"
+                },
+                {
+                  "title": "getStaticPaths",
+                  "path": "/basic-features-data-fetching-get-static-paths"
+                },
+                {
+                  "title": "getStaticProps",
+                  "path": "/basic-features-data-fetching-get-static-props"
+                },
+                {
+                  "title": "Incremental Static Regeneration",
+                  "path": "/basic-features-data-fetching-incremental-static-regeneration"
+                },
+                {
+                  "title": "Client side",
+                  "path": "/basic-features-data-fetching-client-side"
+                }
+              ]
+            },
+            {
+              "title": "Built-in CSS Support",
+              "path": "/basic-features-built-in-css-support"
+            },
+            {
+              "title": "Layouts",
+              "path": "/basic-features-layouts"
+            },
+            {
+              "title": "Image Optimization",
+              "path": "/basic-features-image-optimization"
+            },
+            {
+              "title": "Font Optimization",
+              "path": "/basic-features-font-optimization"
+            },
+            {
+              "title": "Static File Serving",
+              "path": "/basic-features-static-file-serving"
+            },
+            {
+              "title": "Fast Refresh",
+              "path": "/basic-features-fast-refresh"
+            },
+            {
+              "title": "ESLint",
+              "path": "/basic-features-eslint"
+            },
+            {
+              "title": "TypeScript",
+              "path": "/basic-features-typescript"
+            },
+            {
+              "title": "Environment Variables",
+              "path": "/basic-features-environment-variables"
+            },
+            {
+              "title": "Supported Browsers and Features",
+              "path": "/basic-features-supported-browsers-features"
+            },
+            {
+              "title": "Handling Scripts",
+              "path": "/basic-features-script"
+            }
+          ]
+        },
+        {
+          "title": "Routing",
+          "routes": [
+            {
+              "title": "Introduction",
+              "path": "/routing-introduction"
+            },
+            {
+              "title": "Dynamic Routes",
+              "path": "/routing-dynamic-routes"
+            },
+            {
+              "title": "Imperatively",
+              "path": "/routing-imperatively"
+            },
+            {
+              "title": "Shallow Routing",
+              "path": "/routing-shallow-routing"
+            }
+          ]
+        },
+        {
+          "title": "API Routes",
+          "routes": [
+            {
+              "path": "/api-routes-api-middlewares",
+              "redirect": {
+                "destination": "/api-routes-request-helpers",
+                "permanent": true
+              }
+            },
+            {
+              "title": "Introduction",
+              "path": "/api-routes-introduction"
+            },
+            {
+              "title": "Dynamic API Routes",
+              "path": "/api-routes-dynamic-api-routes"
+            },
+            {
+              "title": "Request Helpers",
+              "path": "/api-routes-request-helpers"
+            },
+            {
+              "title": "Response Helpers",
+              "path": "/api-routes-response-helpers"
+            },
+            {
+              "title": "Edge API Routes (Beta)",
+              "path": "/api-routes-edge-api-routes"
+            }
+          ]
+        },
+        {
+          "path": "/middleware",
+          "redirect": {
+            "destination": "/advanced-features-middleware",
+            "permanent": true
+          }
+        },
+        {
+          "title": "Going to Production",
+          "path": "/going-to-production"
+        },
+        {
+          "title": "Deployment",
+          "path": "/deployment"
+        },
+        {
+          "title": "Authentication",
+          "path": "/authentication"
+        },
+        {
+          "title": "Testing",
+          "path": "/testing"
+        },
+        {
+          "title": "Accessibility",
+          "path": "/accessibility"
+        },
+        {
+          "title": "Guides",
+          "routes": [
+            {
+              "title": "Building Forms",
+              "path": "/guides-building-forms"
+            }
+          ]
+        },
+        {
+          "title": "Advanced Features",
+          "routes": [
+            {
+              "title": "Next.js Compiler",
+              "path": "/advanced-features-compiler"
+            },
+            {
+              "title": "Preview Mode",
+              "path": "/advanced-features-preview-mode"
+            },
+            {
+              "title": "Dynamic Import",
+              "path": "/advanced-features-dynamic-import"
+            },
+            {
+              "title": "Automatic Static Optimization",
+              "path": "/advanced-features-automatic-static-optimization"
+            },
+            {
+              "title": "Static HTML Export",
+              "path": "/advanced-features-static-html-export"
+            },
+            {
+              "title": "Absolute Imports and Module Path Aliases",
+              "path": "/advanced-features-module-path-aliases"
+            },
+            {
+              "title": "Using MDX",
+              "path": "/advanced-features-using-mdx"
+            },
+            {
+              "title": "AMP Support",
+              "routes": [
+                {
+                  "title": "Introduction",
+                  "path": "/advanced-features-amp-support-introduction"
+                },
+                {
+                  "title": "Adding AMP Components",
+                  "path": "/advanced-features-amp-support-adding-amp-components"
+                },
+                {
+                  "title": "AMP Validation",
+                  "path": "/advanced-features-amp-support-amp-validation"
+                },
+                {
+                  "title": "AMP in Static HTML export",
+                  "path": "/advanced-features-amp-support-amp-in-static-html-export"
+                },
+                {
+                  "title": "TypeScript",
+                  "path": "/advanced-features-amp-support-typescript"
+                }
+              ]
+            },
+            {
+              "title": "Customizing Babel Config",
+              "path": "/advanced-features-customizing-babel-config"
+            },
+            {
+              "title": "Customizing PostCSS Config",
+              "path": "/advanced-features-customizing-postcss-config"
+            },
+            {
+              "title": "Custom Server",
+              "path": "/advanced-features-custom-server"
+            },
+            {
+              "title": "Custom `App`",
+              "path": "/advanced-features-custom-app"
+            },
+            {
+              "title": "Custom `Document`",
+              "path": "/advanced-features-custom-document"
+            },
+            {
+              "title": "Custom Error Page",
+              "path": "/advanced-features-custom-error-page"
+            },
+            {
+              "title": "`src` Directory",
+              "path": "/advanced-features-src-directory"
+            },
+            {
+              "title": "CI Build Caching",
+              "path": "/advanced-features-ci-build-caching"
+            },
+            {
+              "title": "Multi Zones",
+              "path": "/advanced-features-multi-zones"
+            },
+            {
+              "title": "Measuring performance",
+              "path": "/advanced-features-measuring-performance"
+            },
+            {
+              "title": "Middleware",
+              "path": "/advanced-features-middleware"
+            },
+            {
+              "title": "Debugging",
+              "path": "/advanced-features-debugging"
+            },
+            {
+              "title": "Error Handling",
+              "path": "/advanced-features-error-handling"
+            },
+            {
+              "title": "Source Maps",
+              "path": "/advanced-features-source-maps"
+            },
+            {
+              "title": "Codemods",
+              "path": "/advanced-features-codemods"
+            },
+            {
+              "title": "Internationalized Routing",
+              "path": "/advanced-features-i18n-routing"
+            },
+            {
+              "title": "Output File Tracing",
+              "path": "/advanced-features-output-file-tracing"
+            },
+            {
+              "title": "Security Headers",
+              "path": "/advanced-features-security-headers"
+            },
+            {
+              "title": "React 18",
+              "routes": [
+                {
+                  "path": "/advanced-features-react-18",
+                  "redirect": {
+                    "destination": "/advanced-features-react-18-overview"
+                  }
+                },
+                {
+                  "title": "Overview",
+                  "path": "/advanced-features-react-18-overview"
+                },
+                {
+                  "title": "Streaming SSR",
+                  "path": "/advanced-features-react-18-streaming"
+                },
+                {
+                  "title": "React Server Components",
+                  "path": "/advanced-features-react-18-server-components"
+                },
+                {
+                  "title": "Switchable Runtime",
+                  "path": "/advanced-features-react-18-switchable-runtime"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Upgrade Guide",
+          "path": "/upgrading"
+        },
+        {
+          "title": "Migrating to Next.js",
+          "routes": [
+            {
+              "title": "Incrementally Adopting Next.js",
+              "path": "/migrating-incremental-adoption"
+            },
+            {
+              "title": "Migrating from Gatsby",
+              "path": "/migrating-from-gatsby"
+            },
+            {
+              "title": "Migrating from Create React App",
+              "path": "/migrating-from-create-react-app"
+            },
+            {
+              "title": "Migrating from React Router",
+              "path": "/migrating-from-react-router"
+            }
+          ]
+        },
+        {
+          "title": "FAQ",
+          "path": "/faq"
+        }
+      ]
+    },
+    {
+      "title": "API Reference",
+      "heading": true,
+      "routes": [
+        {
+          "title": "CLI",
+          "path": "/api-reference-cli"
+        },
+        {
+          "title": "Create Next App",
+          "path": "/api-reference-create-next-app"
+        },
+        {
+          "title": "next-router",
+          "path": "/api-reference-next-router"
+        },
+        {
+          "title": "next-link",
+          "path": "/api-reference-next-link"
+        },
+        {
+          "title": "next-image",
+          "path": "/api-reference-next-image"
+        },
+        {
+          "title": "next-script",
+          "path": "/api-reference-next-script"
+        },
+        {
+          "title": "next-head",
+          "path": "/api-reference-next-head"
+        },
+        {
+          "title": "next-amp",
+          "path": "/api-reference-next-amp"
+        },
+        {
+          "title": "next-server",
+          "path": "/api-reference-next-server"
+        },
+        {
+          "path": "/api-reference-next-streaming",
+          "redirect": {
+            "destination": "/advanced-features-react-18"
+          }
+        },
+        {
+          "title": "next-future-image",
+          "path": "/api-reference-next-future-image"
+        },
+        {
+          "title": "Edge Runtime",
+          "path": "/api-reference-edge-runtime"
+        },
+        {
+          "title": "Data Fetching",
+          "routes": [
+            {
+              "title": "getInitialProps",
+              "path": "/api-reference-data-fetching-get-initial-props"
+            },
+            {
+              "title": "getServerSideProps",
+              "path": "/api-reference-data-fetching-get-server-side-props"
+            },
+            {
+              "title": "getStaticPaths",
+              "path": "/api-reference-data-fetching-get-static-paths"
+            },
+            {
+              "title": "getStaticProps",
+              "path": "/api-reference-data-fetching-get-static-props"
+            }
+          ]
+        },
+        {
+          "title": "Static Optimization Indicator",
+          "path": "/api-reference-next.config-js-static-optimization-indicator"
+        },
+        {
+          "title": "next.config.js",
+          "routes": [
+            {
+              "title": "Introduction",
+              "path": "/api-reference-next.config-js-introduction"
+            },
+            {
+              "title": "Environment Variables",
+              "path": "/api-reference-next.config-js-environment-variables"
+            },
+            {
+              "title": "Base Path",
+              "path": "/api-reference-next.config-js-basepath"
+            },
+            {
+              "title": "Rewrites",
+              "path": "/api-reference-next.config-js-rewrites"
+            },
+            {
+              "title": "Redirects",
+              "path": "/api-reference-next.config-js-redirects"
+            },
+            {
+              "title": "Custom Headers",
+              "path": "/api-reference-next.config-js-headers"
+            },
+            {
+              "title": "Custom Page Extensions",
+              "path": "/api-reference-next.config-js-custom-page-extensions"
+            },
+            {
+              "title": "CDN Support with Asset Prefix",
+              "path": "/api-reference-next.config-js-cdn-support-with-asset-prefix"
+            },
+            {
+              "title": "Custom Webpack Config",
+              "path": "/api-reference-next.config-js-custom-webpack-config"
+            },
+            {
+              "title": "Compression",
+              "path": "/api-reference-next.config-js-compression"
+            },
+            {
+              "title": "Runtime Configuration",
+              "path": "/api-reference-next.config-js-runtime-configuration"
+            },
+            {
+              "title": "Disabling x-powered-by",
+              "path": "/api-reference-next.config-js-disabling-x-powered-by"
+            },
+            {
+              "title": "Disabling ETag Generation",
+              "path": "/api-reference-next.config-js-disabling-etag-generation"
+            },
+            {
+              "title": "Disabling HTTP Keep-Alive",
+              "path": "/api-reference-next.config-js-disabling-http-keep-alive"
+            },
+            {
+              "title": "Setting a custom build directory",
+              "path": "/api-reference-next.config-js-setting-a-custom-build-directory"
+            },
+            {
+              "title": "Configuring the Build ID",
+              "path": "/api-reference-next.config-js-configuring-the-build-id"
+            },
+            {
+              "title": "Configuring onDemandEntries",
+              "path": "/api-reference-next.config-js-configuring-onDemandEntries"
+            },
+            {
+              "title": "Ignoring ESLint",
+              "path": "/api-reference-next.config-js-ignoring-eslint"
+            },
+            {
+              "title": "Ignoring TypeScript Errors",
+              "path": "/api-reference-next.config-js-ignoring-typescript-errors"
+            },
+            {
+              "title": "exportPathMap",
+              "path": "/api-reference-next.config-js-exportPathMap"
+            },
+            {
+              "title": "Trailing Slash",
+              "path": "/api-reference-next.config-js-trailing-slash"
+            },
+            {
+              "title": "React Strict Mode",
+              "path": "/api-reference-next.config-js-react-strict-mode"
+            },
+            {
+              "title": "URL Imports",
+              "path": "/api-reference-next.config-js-url-imports"
+            },
+            {
+              "title": "Build indicator",
+              "path": "/api-reference-next.config-js-build-indicator"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

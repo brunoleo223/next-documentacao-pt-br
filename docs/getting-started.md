@@ -1,5 +1,4 @@
 ---
-title: Getting Started
 description: Get started with Next.js in the official documentation, and learn more about all our features!
 ---
 
@@ -115,3 +114,24 @@ In addition, any Next.js application is ready for production from the start. Rea
 ## Related
 
 For more information on what to do next, we recommend the following sections:
+
+<div class="card">
+  <a href="/docs/basic-features/pages.md">
+    <b>Pages:</b>
+    <small>Learn more about what pages are in Next.js.</small>
+  </a>
+</div>
+
+<div class="card">
+  <a href="/docs/basic-features/built-in-css-support.md">
+    <b>CSS Support:</b>
+    <small>Built-in CSS support to add custom styles to your app.</small>
+  </a>
+</div>
+
+<div class="card">
+  <a href="/docs/api-reference/cli.md">
+    <b>CLI:</b>
+    <small>Learn more about the Next.js CLI.</small>
+  </a>
+</div>
