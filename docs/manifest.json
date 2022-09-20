@@ -20,18 +20,6 @@
               "title": "Data Fetching",
               "routes": [
                 {
-                  "path": "/basic-features-data-fetching",
-                  "redirect": {
-                    "destination": "/basic-features-data-fetching-overview"
-                  }
-                },
-                {
-                  "path": "/basic-features-data-fetching-index",
-                  "redirect": {
-                    "destination": "/basic-features-data-fetching-overview"
-                  }
-                },
-                {
                   "title": "Overview",
                   "path": "/basic-features-data-fetching-overview"
                 },
@@ -128,13 +116,6 @@
           "title": "API Routes",
           "routes": [
             {
-              "path": "/api-routes-api-middlewares",
-              "redirect": {
-                "destination": "/api-routes-request-helpers",
-                "permanent": true
-              }
-            },
-            {
               "title": "Introduction",
               "path": "/api-routes-introduction"
             },
@@ -155,13 +136,6 @@
               "path": "/api-routes-edge-api-routes"
             }
           ]
-        },
-        {
-          "path": "/middleware",
-          "redirect": {
-            "destination": "/advanced-features-middleware",
-            "permanent": true
-          }
         },
         {
           "title": "Going to Production",
@@ -324,12 +298,6 @@
               "title": "React 18",
               "routes": [
                 {
-                  "path": "/advanced-features-react-18",
-                  "redirect": {
-                    "destination": "/advanced-features-react-18-overview"
-                  }
-                },
-                {
                   "title": "Overview",
                   "path": "/advanced-features-react-18-overview"
                 },
@@ -419,12 +387,6 @@
         {
           "title": "next-server",
           "path": "/api-reference-next-server"
-        },
-        {
-          "path": "/api-reference-next-streaming",
-          "redirect": {
-            "destination": "/advanced-features-react-18"
-          }
         },
         {
           "title": "next-future-image",
