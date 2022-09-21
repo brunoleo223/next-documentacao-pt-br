@@ -1,84 +1,79 @@
 import { useEffect, useState } from 'react';
 import routes from '../../utils/manifest.json';
 import Link from 'next/link';
+import styles from './styles.module.scss';
 
 export function Menu() {
 
     const [menu, setMenu] = useState('');
     
     useEffect(() => {
-        const r = <ul>
+        const r = <div>
         {routes.routes.map((item) => {
             if (item.routes) {
                 return (
-                <li key={item.title}>
-                    {item.title}
-                    <ul>
-                    {item.routes.map((child) => {
-                        if (child.routes) {
-                        return (
-                            <li key={child.title}>
-                            {child.title}
-                            <ul>
-                                {child.routes.map((grandchild) => {
-                                if(grandchild.routes) {
+                <>
+                    <details open>
+                        <summary key={item.title}>
+                            {item.title}
+                        </summary>
+                        <ul>
+                        {item.routes.map((child) => {
+                            if (child.routes) {
+                            return (
+                                <>
+                                <details>
+                                <summary key={child.title}>
+                                    {child.title}
+                                </summary>
+                                <ul>
+                                    {child.routes.map((grandchild) => {
+                                    if(grandchild.routes) {
+                                        return (
+                                            <>
+                                            <details>
+                                                <summary key={grandchild.title}>
+                                                    {grandchild.title}
+                                                </summary>
+                                                <ul>
+                                                {grandchild.routes.map((greatgrandchild) => {
+                                                    return (
+                                                    <li key={greatgrandchild.title}>
+                                                        <Link href={`/docs/${greatgrandchild.path}`}>
+                                                            <a>{greatgrandchild.title}</a>
+                                                        </Link>
+                                                    </li>
+                                                    )
+                                                })}
+                                                </ul>
+                                            </details>
+                                            </>
+                                        )
+                                    }
                                     return (
-                                    <li key={grandchild.title}>
-                                        {grandchild.title}
-                                        <ul>
-                                        {grandchild.routes.map((greatgrandchild) => {
-                                            if(greatgrandchild.routes) {
-                                                return (
-                                                <li key={greatgrandchild.title}>
-                                                    {greatgrandchild.title}
-                                                    <ul>
-                                                    {greatgrandchild.routes.map((greatgreatgrandchild) => {
-                                                        return (
-                                                        <li key={greatgreatgrandchild.title}>
-                                                            <Link href={`/docs/${greatgreatgrandchild.path}`}>
-                                                                <a>{greatgreatgrandchild.title}</a>
-                                                            </Link>
-                                                        </li>
-                                                        )
-                                                    })}
-                                                    </ul>
-                                                </li>
-                                                )
-                                            }
-                                            return (
-                                            <li key={greatgrandchild.title}>
-                                                <Link href={`/docs/${greatgrandchild.path}`}>
-                                                    <a>{greatgrandchild.title}</a>
-                                                </Link>
-                                            </li>
-                                            )
-                                        })}
-                                        </ul>
-                                    </li>
-                                    )
-                                }
-                                return (
-                                    <li key={grandchild.title}>
-                                        <Link href={`/docs/${grandchild.path}`}>
-                                            <a>{grandchild.title}</a>
-                                        </Link>
-                                    </li>
-                                );
-                                })}
-                            </ul>
+                                        <li key={grandchild.title}>
+                                            <Link href={`/docs/${grandchild.path}`}>
+                                                <a>{grandchild.title}</a>
+                                            </Link>
+                                        </li>
+                                    );
+                                    })}
+                                </ul>
+                                </details>
+                                </>
+                            );
+                            }
+                            return (
+                            <li key={child.title}>
+                                <Link href={`/docs/${child.path}`}>
+                                    <a>{child.title}</a>
+                                </Link>
                             </li>
-                        );
-                        }
-                        return (
-                        <li key={child.title}>
-                            <Link href={`/docs/${child.path}`}>
-                                <a>{child.title}</a>
-                            </Link>
-                        </li>
-                        );
-                    })}
-                    </ul>
-                </li>
+                            );
+                        })}
+                        </ul>
+                    </details>
+                </>
                 );
             }
             return (
@@ -90,12 +85,12 @@ export function Menu() {
             );
             }
             )}
-        </ul>;
+        </div>;
         setMenu(r);
     }, [])
     
     return (
-        <div>
+        <div className={styles.menu}>
             {menu}
         </div>
     )

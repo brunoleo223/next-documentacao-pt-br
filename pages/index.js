@@ -1,13 +1,12 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import Link from 'next/link';
 import Menu from '../components/Menu';
 
 function App({posts}) {
   return (
     <>
-      <Menu />
+      <h1>adf</h1>
     </>
   )
 }
