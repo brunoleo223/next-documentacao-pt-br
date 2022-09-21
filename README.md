@@ -1,4 +1,4 @@
-# Next.js Documentação em Portugês 🇧🇷
+# Next.js Documentação em Português 🇧🇷
 
 Esse projeto busca traduzir e manter atualizada a documentação oficial do Next.js para Português Brasil.
 
