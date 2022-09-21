@@ -1,7 +1,7 @@
 function App() {
   return (
     <>
-      <h1>Next.js Documentação em Portugês 🇧🇷</h1>
+      <h1>Next.js Documentação em Português 🇧🇷</h1>
       <p>Esse projeto busca traduzir e manter atualizada a documentação oficial do Next.js para Português Brasil.</p>
       <h2>Próximas etapas</h2>
       <ul>
