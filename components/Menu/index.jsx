@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import routes from '../../docs/manifest.json'
+import routes from '../../utils/manifest.json';
+import Link from 'next/link';
 
 export function Menu() {
 
@@ -26,11 +27,29 @@ export function Menu() {
                                         {grandchild.title}
                                         <ul>
                                         {grandchild.routes.map((greatgrandchild) => {
+                                            if(greatgrandchild.routes) {
+                                                return (
+                                                <li key={greatgrandchild.title}>
+                                                    {greatgrandchild.title}
+                                                    <ul>
+                                                    {greatgrandchild.routes.map((greatgreatgrandchild) => {
+                                                        return (
+                                                        <li key={greatgreatgrandchild.title}>
+                                                            <Link href={`/docs/${greatgreatgrandchild.path}`}>
+                                                                <a>{greatgreatgrandchild.title}</a>
+                                                            </Link>
+                                                        </li>
+                                                        )
+                                                    })}
+                                                    </ul>
+                                                </li>
+                                                )
+                                            }
                                             return (
                                             <li key={greatgrandchild.title}>
-                                                <a href={greatgrandchild.path}>
-                                                <a>{greatgrandchild.title}</a>
-                                                </a>
+                                                <Link href={`/docs/${greatgrandchild.path}`}>
+                                                    <a>{greatgrandchild.title}</a>
+                                                </Link>
                                             </li>
                                             )
                                         })}
@@ -40,9 +59,9 @@ export function Menu() {
                                 }
                                 return (
                                     <li key={grandchild.title}>
-                                    <a href={grandchild.path}>
-                                        <a>{grandchild.title}</a>
-                                    </a>
+                                        <Link href={`/docs/${grandchild.path}`}>
+                                            <a>{grandchild.title}</a>
+                                        </Link>
                                     </li>
                                 );
                                 })}
@@ -52,9 +71,9 @@ export function Menu() {
                         }
                         return (
                         <li key={child.title}>
-                            <a href={child.path}>
-                            <a>{child.title}</a>
-                            </a>
+                            <Link href={`/docs/${child.path}`}>
+                                <a>{child.title}</a>
+                            </Link>
                         </li>
                         );
                     })}
@@ -64,9 +83,9 @@ export function Menu() {
             }
             return (
                 <li key={item.title}>
-                <a href={item.path}>
-                    <a>{item.title}</a>
-                </a>
+                    <Link href={`/docs/${item.path}`}>
+                        <a>{item.title}</a>
+                    </Link>
                 </li>
             );
             }

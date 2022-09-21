@@ -7,8 +7,7 @@ import Menu from '../components/Menu';
 function App({posts}) {
   return (
     <>
-      <h1>adf</h1>
-      {posts && <Menu />}
+      <Menu />
     </>
   )
 }

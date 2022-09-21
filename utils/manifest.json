@@ -419,106 +419,106 @@
         },
         {
           "title": "Static Optimization Indicator",
-          "path": "/api-reference-next.config-js-static-optimization-indicator"
+          "path": "/api-reference-next.config.js-static-optimization-indicator"
         },
         {
           "title": "next.config.js",
           "routes": [
             {
               "title": "Introduction",
-              "path": "/api-reference-next.config-js-introduction"
+              "path": "/api-reference-next.config.js-introduction"
             },
             {
               "title": "Environment Variables",
-              "path": "/api-reference-next.config-js-environment-variables"
+              "path": "/api-reference-next.config.js-environment-variables"
             },
             {
               "title": "Base Path",
-              "path": "/api-reference-next.config-js-basepath"
+              "path": "/api-reference-next.config.js-basepath"
             },
             {
               "title": "Rewrites",
-              "path": "/api-reference-next.config-js-rewrites"
+              "path": "/api-reference-next.config.js-rewrites"
             },
             {
               "title": "Redirects",
-              "path": "/api-reference-next.config-js-redirects"
+              "path": "/api-reference-next.config.js-redirects"
             },
             {
               "title": "Custom Headers",
-              "path": "/api-reference-next.config-js-headers"
+              "path": "/api-reference-next.config.js-headers"
             },
             {
               "title": "Custom Page Extensions",
-              "path": "/api-reference-next.config-js-custom-page-extensions"
+              "path": "/api-reference-next.config.js-custom-page-extensions"
             },
             {
               "title": "CDN Support with Asset Prefix",
-              "path": "/api-reference-next.config-js-cdn-support-with-asset-prefix"
+              "path": "/api-reference-next.config.js-cdn-support-with-asset-prefix"
             },
             {
               "title": "Custom Webpack Config",
-              "path": "/api-reference-next.config-js-custom-webpack-config"
+              "path": "/api-reference-next.config.js-custom-webpack-config"
             },
             {
               "title": "Compression",
-              "path": "/api-reference-next.config-js-compression"
+              "path": "/api-reference-next.config.js-compression"
             },
             {
               "title": "Runtime Configuration",
-              "path": "/api-reference-next.config-js-runtime-configuration"
+              "path": "/api-reference-next.config.js-runtime-configuration"
             },
             {
               "title": "Disabling x-powered-by",
-              "path": "/api-reference-next.config-js-disabling-x-powered-by"
+              "path": "/api-reference-next.config.js-disabling-x-powered-by"
             },
             {
               "title": "Disabling ETag Generation",
-              "path": "/api-reference-next.config-js-disabling-etag-generation"
+              "path": "/api-reference-next.config.js-disabling-etag-generation"
             },
             {
               "title": "Disabling HTTP Keep-Alive",
-              "path": "/api-reference-next.config-js-disabling-http-keep-alive"
+              "path": "/api-reference-next.config.js-disabling-http-keep-alive"
             },
             {
               "title": "Setting a custom build directory",
-              "path": "/api-reference-next.config-js-setting-a-custom-build-directory"
+              "path": "/api-reference-next.config.js-setting-a-custom-build-directory"
             },
             {
               "title": "Configuring the Build ID",
-              "path": "/api-reference-next.config-js-configuring-the-build-id"
+              "path": "/api-reference-next.config.js-configuring-the-build-id"
             },
             {
               "title": "Configuring onDemandEntries",
-              "path": "/api-reference-next.config-js-configuring-onDemandEntries"
+              "path": "/api-reference-next.config.js-configuring-onDemandEntries"
             },
             {
               "title": "Ignoring ESLint",
-              "path": "/api-reference-next.config-js-ignoring-eslint"
+              "path": "/api-reference-next.config.js-ignoring-eslint"
             },
             {
               "title": "Ignoring TypeScript Errors",
-              "path": "/api-reference-next.config-js-ignoring-typescript-errors"
+              "path": "/api-reference-next.config.js-ignoring-typescript-errors"
             },
             {
               "title": "exportPathMap",
-              "path": "/api-reference-next.config-js-exportPathMap"
+              "path": "/api-reference-next.config.js-exportPathMap"
             },
             {
               "title": "Trailing Slash",
-              "path": "/api-reference-next.config-js-trailing-slash"
+              "path": "/api-reference-next.config.js-trailing-slash"
             },
             {
               "title": "React Strict Mode",
-              "path": "/api-reference-next.config-js-react-strict-mode"
+              "path": "/api-reference-next.config.js-react-strict-mode"
             },
             {
               "title": "URL Imports",
-              "path": "/api-reference-next.config-js-url-imports"
+              "path": "/api-reference-next.config.js-url-imports"
             },
             {
               "title": "Build indicator",
-              "path": "/api-reference-next.config-js-build-indicator"
+              "path": "/api-reference-next.config.js-build-indicator"
             }
           ]
         }
