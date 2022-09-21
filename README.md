@@ -3,10 +3,10 @@
 Esse projeto busca traduzir e manter atualizada a documentação oficial do Next.js para Português Brasil.
 
 ## Próximas etapas
-- [ ] Configurar layout de base
-- [ ] Carregar arquivos markdown da documentação em Inglês
-- [ ] Listagem dos links do menu
-- [ ] Configurar docs/[slug].js
+- [x] Configurar layout de base
+- [x] Carregar arquivos markdown da documentação em Inglês
+- [x] Listagem dos links do menu
+- [x] Configurar docs/[slug].js
 - [ ] Traduzir todos os 139 arquivos markdown para Português
 - [ ] Atualizar links internos
 - [ ] Configurar roteamento da página inicial e /docs
