@@ -1,12 +1,12 @@
 {
   "routes": [
     {
-      "title": "Documentation",
+      "title": "Documentação",
       "heading": true,
       "routes": [
         {
-          "title": "Getting Started",
-          "path": "/getting-started"
+          "title": "Introdução",
+          "path": "/introcucao"
         },
         {
           "title": "Basic Features",
