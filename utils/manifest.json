@@ -9,11 +9,11 @@
           "path": "/introcucao"
         },
         {
-          "title": "Basic Features",
+          "title": "Recursos Básicos",
           "open": true,
           "routes": [
             {
-              "title": "Pages",
+              "title": "Páginas",
               "path": "/basic-features-pages"
             },
             {

@@ -2,76 +2,76 @@
 description: Next.js pages are React Components exported in a file in the pages directory. Learn how they work here.
 ---
 
-# Pages
+# Páginas
 
-> **Note:** We are introducing improved routing support in Next.js. Read the [Layouts RFC](https://nextjs.org/blog/layouts-rfc) for more details and to provide feedback.
+> **Nota:** Estamos introduzindo uma melhoria no suporte de roteamento no Next.js. Leia em [Layouts RFC](https://nextjs.org/blog/layouts-rfc) para mais detalhes e deixe seu feedback.
 
-In Next.js, a **page** is a [React Component](https://reactjs.org/docs/components-and-props.html) exported from a `.js`, `.jsx`, `.ts`, or `.tsx` file in the `pages` directory. Each page is associated with a route based on its file name.
+No Next.js, uma **página (page)** é um [Componente React](https://reactjs.org/docs/components-and-props.html) exportado por um arquivo `.js`, `.jsx`, `.ts`, ou `.tsx` nas pasta `pages`. Cada página está associada com uma rota baseada nos nomes dos arquivos. 
 
-**Example**: If you create `pages/about.js` that exports a React component like below, it will be accessible at `/about`.
+**Exemplo**: Se você criar `pages/sobre.js` exportando um componente React como o abaixo, esse aquivo estará disponível na sua aplicação no caminho `/sobre`.
 
 ```jsx
-function About() {
-  return <div>About</div>
+function Sobre() {
+  return <div>Sobre</div>
 }
 
-export default About
+export default Sobre
 ```
 
-### Pages with Dynamic Routes
+### Páginas com Rotas Dinâmicas
 
-Next.js supports pages with dynamic routes. For example, if you create a file called `pages/posts/[id].js`, then it will be accessible at `posts/1`, `posts/2`, etc.
+Next.js tem suporte a roteamento dinâmico. Por exemplo, se você criar um arquivo chamado `pages/posts/[id].js`, então esse arquivo estará acessível em `posts/artigo-1`, `posts/artigo-2`, etc.
 
-> To learn more about dynamic routing, check the [Dynamic Routing documentation](/docs/routing/dynamic-routes.md).
+> Para saber mais sobre roteamento dinâmico, clique em [Documentação Roteamento Dinâmico](/docs/routing-dynamic-routes.md).
 
-## Pre-rendering
+## Pré-renderização
 
-By default, Next.js **pre-renders** every page. This means that Next.js generates HTML for each page in advance, instead of having it all done by client-side JavaScript. Pre-rendering can result in better performance and SEO.
+Por padrão, Next.ks **pré-renderiza** todas as páginas. Isso significa que o Next.js gera um HTML para cada página com antecedencia, em vez de deixar tudo para ser feito pelo Javascript do lado do cliente (client-side). A pré-renderização pode ter um resultado melhor de performance e SEO.
 
-Each generated HTML is associated with minimal JavaScript code necessary for that page. When a page is loaded by the browser, its JavaScript code runs and makes the page fully interactive. (This process is called _hydration_.)
+Cada HTML gerado está associado ao mínimo de código Javascript necesário para essa página. Quando uma página é carregada no nevegador, o código Javascript roda e gera uma página totalmente interativa. (Esse processo é chamado de _hidratação [hydration]_)
 
-### Two forms of Pre-rendering
+### Duas formas de pré-renderização
 
-Next.js has two forms of pre-rendering: **Static Generation** and **Server-side Rendering**. The difference is in **when** it generates the HTML for a page.
+Next.js tem duas formas de pré-renderização: **Geração Estática (Static Generation)** e **Renderização no Servidor (Server-side Rendering)**. A diferença está em **quando** o HTML da página é gerado.
 
-- [**Static Generation (Recommended)**](#static-generation-recommended): The HTML is generated at **build time** and will be reused on each request.
-- [**Server-side Rendering**](#server-side-rendering): The HTML is generated on **each request**.
+- [**Geração Estática (Recomendado)**](#static-generation-recommended): O HTML é gerado no **momento de construção** e será reutilizado em cada requisição.
+- [**Renderização no Servidor**](#server-side-rendering): O HTML é gerado em **cada requisição**.
 
-Importantly, Next.js lets you **choose** which pre-rendering form you'd like to use for each page. You can create a "hybrid" Next.js app by using Static Generation for most pages and using Server-side Rendering for others.
+É importante ressaltar que o Next.js permite você **escolher** o tipo de pré-renderização que preferir utilizar para cada página. Você pode criar uma aplicação Next.js "híbrida" usando Geração Estática para algumas páginas e Renderização no Servidor em outras.
 
-We **recommend** using **Static Generation** over Server-side Rendering for performance reasons. Statically generated pages can be cached by CDN with no extra configuration to boost performance. However, in some cases, Server-side Rendering might be the only option.
+**Recomendamos** usar **Geração Estática** em vez de Renderização no Servidor por motivos de performance. Páginas geradas estaticamente podem ser armazenadas em cache por CDN sem configurações extras para melhorar performance. De qualquer forma, em alguns casos a Renderização no Servidor pode ser a única opção.
 
-You can also use **Client-side data fetching** along with Static Generation or Server-side Rendering. That means some parts of a page can be rendered entirely by client side JavaScript. To learn more, take a look at the [Data Fetching](/docs/basic-features/data-fetching/client-side.md) documentation.
+Você também pode usar a **Busca de dados do lado do cliente** junto com a Geração Estática ou Renderização no Servidor. Isso significa que algumas partes da página podem ser renderizadas inteiramente pelo Javascript do cliente. Para saber mais, acesse a documentação de [Busca de dados(Data Fetching)](/docs/basic-features/data-fetching/client-side.md).
 
-## Static Generation (Recommended)
+## Geração Estática (Recomendado)
 
 <details open>
-  <summary><b>Examples</b></summary>
+  <summary><b>Exemplos</b></summary>
   <ul>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress">WordPress Example</a> (<a href="https://next-blog-wordpress.vercel.app">Demo</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/blog-starter">Blog Starter using markdown files</a> (<a href="https://next-blog-starter.vercel.app/">Demo</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-datocms">DatoCMS Example</a> (<a href="https://next-blog-datocms.vercel.app/">Demo</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-takeshape">TakeShape Example</a> (<a href="https://next-blog-takeshape.vercel.app/">Demo</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-sanity">Sanity Example</a> (<a href="https://next-blog-sanity.vercel.app/">Demo</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-prismic">Prismic Example</a> (<a href="https://next-blog-prismic.vercel.app/">Demo</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-contentful">Contentful Example</a> (<a href="https://next-blog-contentful.vercel.app/">Demo</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-strapi">Strapi Example</a> (<a href="https://next-blog-strapi.vercel.app/">Demo</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-prepr">Prepr Example</a> (<a href="https://next-blog-prepr.vercel.app/">Demo</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-agilitycms">Agility CMS Example</a> (<a href="https://next-blog-agilitycms.vercel.app/">Demo</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-cosmic">Cosmic Example</a> (<a href="https://next-blog-cosmic.vercel.app/">Demo</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-buttercms">ButterCMS Example</a> (<a href="https://next-blog-buttercms.vercel.app/">Demo</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-storyblok">Storyblok Example</a> (<a href="https://next-blog-storyblok.vercel.app/">Demo</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-graphcms">GraphCMS Example</a> (<a href="https://next-blog-graphcms.vercel.app/">Demo</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-kontent">Kontent Example</a> (<a href="https://next-blog-kontent.vercel.app/">Demo</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-builder-io">Builder.io Example</a> (<a href="https://cms-builder-io.vercel.app/">Demo</a>)</li>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-tina">TinaCMS Example</a> (<a href="https://cms-tina-example.vercel.app/">Demo</a>)</li>
-    <li><a href="https://static-tweet.vercel.app/">Static Tweet (Demo)</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress">WordPress</a> (<a href="https://next-blog-wordpress.vercel.app">Demonstração</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/blog-starter">Blog Simples com arquivos markdown</a> (<a href="https://next-blog-starter.vercel.app/">Demonstração</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-datocms">DatoCMS</a> (<a href="https://next-blog-datocms.vercel.app/">Demonstração</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-takeshape">TakeShape</a> (<a href="https://next-blog-takeshape.vercel.app/">Demonstração</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-sanity">Sanity</a> (<a href="https://next-blog-sanity.vercel.app/">Demonstração</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-prismic">Prismic</a> (<a href="https://next-blog-prismic.vercel.app/">Demonstração</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-contentful">Contentful</a> (<a href="https://next-blog-contentful.vercel.app/">Demonstração</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-strapi">Strapi</a> (<a href="https://next-blog-strapi.vercel.app/">Demonstração</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-prepr">Prepr</a> (<a href="https://next-blog-prepr.vercel.app/">Demonstração</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-agilitycms">Agility CMS</a> (<a href="https://next-blog-agilitycms.vercel.app/">Demonstração</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-cosmic">Cosmic</a> (<a href="https://next-blog-cosmic.vercel.app/">Demonstração</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-buttercms">ButterCMS</a> (<a href="https://next-blog-buttercms.vercel.app/">Demonstração</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-storyblok">Storyblok </a> (<a href="https://next-blog-storyblok.vercel.app/">Demonstração</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-graphcms">GraphCMS</a> (<a href="https://next-blog-graphcms.vercel.app/">Demonstração</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-kontent">Kontent</a> (<a href="https://next-blog-kontent.vercel.app/">Demonstração</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-builder-io">Builder.io </a> (<a href="https://cms-builder-io.vercel.app/">Demonstração</a>)</li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/cms-tina">TinaCMS</a> (<a href="https://cms-tina-example.vercel.app/">Demonstração</a>)</li>
+    <li><a href="https://static-tweet.vercel.app/">Static Tweet (Demonstração)</a></li>
   </ul>
 </details>
 
-If a page uses **Static Generation**, the page HTML is generated at **build time**. That means in production, the page HTML is generated when you run `next build` . This HTML will then be reused on each request. It can be cached by a CDN.
+Se uma página usa **Geração Estática**, a página HTML será gerada **tempo de construção**. Isso significa que em produção a página HTML será gerada quando você executar `next build`. Esse HTML será então utilizado em cada requisição. Ele pode ser mantido em cache por uma CDN.
 
-In Next.js, you can statically generate pages **with or without data**. Let's take a look at each case.
+No Next.js, você pode gerar páginas estaticamente **com ou sem dados**. Vamos dar uma olhada em cada caso.
 
 ### Static Generation without data
 
