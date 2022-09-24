@@ -39,3 +39,8 @@ body {
   color: rgb(17,17,17);
   background: #fff;
 }
+
+pre {
+  max-width: 100%;
+  overflow-x: scroll;
+}

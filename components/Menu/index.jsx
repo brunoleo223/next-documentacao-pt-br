@@ -91,6 +91,7 @@ export function Menu() {
     
     return (
         <div className={styles.menu}>
+            <h2>Navegação</h2>
             {menu}
         </div>
     )

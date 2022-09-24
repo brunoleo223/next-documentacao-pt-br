@@ -6,6 +6,9 @@
     gap: 2rem;
 
     display: flex;
+    @media (max-width: 768px){
+        flex-direction: column;
+    }
 
     main{
         padding-bottom: 60px;
