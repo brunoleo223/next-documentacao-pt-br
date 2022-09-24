@@ -73,39 +73,39 @@ Se uma página usa **Geração Estática**, a página HTML será gerada **tempo 
 
 No Next.js, você pode gerar páginas estaticamente **com ou sem dados**. Vamos dar uma olhada em cada caso.
 
-### Static Generation without data
+### Geração Estática sem dados
 
-By default, Next.js pre-renders pages using Static Generation without fetching data. Here's an example:
+Por padrão, o Next.js pré-renderiza páginas usando Geração Estática sem busca de dadso. Aqui alguns exemplos:
 
 ```jsx
-function About() {
-  return <div>About</div>
+function Sobre() {
+  return <div>Sobre</div>
 }
 
-export default About
+export default Sobre
 ```
 
-Note that this page does not need to fetch any external data to be pre-rendered. In cases like this, Next.js generates a single HTML file per page during build time.
+Perceba que essa página não precisa buscar nenhum dado externo para ser pré-renderizado. Em casos como esses, o Next.js gera uma arquivo HTML simples por página durante o tempo de construção.
 
-### Static Generation with data
+### Geração Estática com dados
 
-Some pages require fetching external data for pre-rendering. There are two scenarios, and one or both might apply. In each case, you can use these functions that Next.js provides:
+Algumas páginas precisão buscar dados externos para serem pré-renderizadas. Nesse caso temos duas opções e uma delas deve ser usada. Em casa caso você pode usar essas funções fornecidas pelo Next.js:
 
-1. Your page **content** depends on external data: Use `getStaticProps`.
-2. Your page **paths** depend on external data: Use `getStaticPaths` (usually in addition to `getStaticProps`).
+1. O **conteúdo** da sua página depende de dados externos: use `getStaticProps`.
+2. Os **caminhos** da sua página dependem de dados externos: use `getStaticPaths` (geralmente combinado com `getStaticProps`).
 
-#### Scenario 1: Your page **content** depends on external data
+#### Cenário 1: O **conteúdo** da sua página depende de dados externos
 
-**Example**: Your blog page might need to fetch the list of blog posts from a CMS (content management system).
+**Exemplo**: Sua página de blog precisa buscar a lista de posts em um CMS (sistema de gerenciamento de conteúdo).
 
 ```jsx
-// TODO: Need to fetch `posts` (by calling some API endpoint)
-//       before this page can be pre-rendered.
+// Para Fazer: Precisa fazer um fetch em `posts` (chamando por alguma API)
+//             antes da página ser renderizada
 function Blog({ posts }) {
   return (
     <ul>
       {posts.map((post) => (
-        <li>{post.title}</li>
+        <li>{post.titulo}</li>
       ))}
     </ul>
   )
@@ -116,19 +116,21 @@ export default Blog
 
 To fetch this data on pre-render, Next.js allows you to `export` an `async` function called `getStaticProps` from the same file. This function gets called at build time and lets you pass fetched data to the page's `props` on pre-render.
 
+Para buscar esses dados em pré-renderização, Next.js te permite `exporta` uma função `asincrona` chamada `getStaticProps` no mesmo arquivo. Essa função é chamada em tempo de construção e te permite passar os dados buscados para a página por meio das `propriedades (props)` antes da renderização. 
+
 ```jsx
 function Blog({ posts }) {
-  // Render posts...
+  // Renderizar posts...
 }
 
-// This function gets called at build time
+// Essa função é chamada em tempo de construção
 export async function getStaticProps() {
-  // Call an external API endpoint to get posts
+  // Chama uma API externa e busca osd ados
   const res = await fetch('https://.../posts')
   const posts = await res.json()
 
-  // By returning { props: { posts } }, the Blog component
-  // will receive `posts` as a prop at build time
+  // Retorna { props: { posts } }
+  // O componente de Blog vai receber `posts` como uma propriedade (props) em tempo de construção
   return {
     props: {
       posts,
@@ -139,83 +141,84 @@ export async function getStaticProps() {
 export default Blog
 ```
 
-To learn more about how `getStaticProps` works, check out the [Data Fetching documentation](/docs/basic-features/data-fetching/get-static-props.md).
+Para saber mais sobre como `getStaticProps` funciona, acesse [Documentação de Busca de Dados](/docs/basic-features/data-fetching/get-static-props.md).
 
-#### Scenario 2: Your page paths depend on external data
+#### Cenário 2: Os **caminhos** da sua página dependem de dados externos
 
-Next.js allows you to create pages with **dynamic routes**. For example, you can create a file called `pages/posts/[id].js` to show a single blog post based on `id`. This will allow you to show a blog post with `id: 1` when you access `posts/1`.
+Next.js te permite criar páginas com **rotas dinâmicas**. Você pode, por exemplo, criar um arquivo chama `pages/posts/[id].js` para exibir um único post de blog baseado no `id`. Isso te permitirá exibir um post de blog com `id: 1` quando você acessar `posts/1`.
 
-> To learn more about dynamic routing, check the [Dynamic Routing documentation](/docs/routing/dynamic-routes.md).
+> Para aprender mais sobre roteamente dinâmico, acesse [Documentação de Roteamento Dinâmico](/docs/routing/dynamic-routes.md).
 
-However, which `id` you want to pre-render at build time might depend on external data.
+Entretanto, o `id` que você quer pré-renderizar em tempo de construção depende de dados externos.
 
-**Example**: suppose that you've only added one blog post (with `id: 1`) to the database. In this case, you'd only want to pre-render `posts/1` at build time.
+**Exemplo**: suponha que você está apenas adicionando um post de blog (com `id: 1`) no banco de dados. Nesse caso você quer pré-renderizar o post `posts/1` em tempo de construção.
 
-Later, you might add the second post with `id: 2`. Then you'd want to pre-render `posts/2` as well.
+Depois você quer adicioanr um segundo posts com `id: 2`. Agora então você quer pré-renderizar o `posts/2` também.
 
-So your page **paths** that are pre-rendered depend on external data**.** To handle this, Next.js lets you `export` an `async` function called `getStaticPaths` from a dynamic page (`pages/posts/[id].js` in this case). This function gets called at build time and lets you specify which paths you want to pre-render.
+Então os **caminhos** das suas páginas que serão pré-renderizados dependem de dados externos. Para resolver isso, o Next.js te permite `exportar` uma função chamada `getStaticPaths` em uma página dinâmica (`pages/posts/[id].js` nesse caso). Essa função é chamada em tempo de construção e te permite especificar quais caminhos você quer pré-renderizar.
 
 ```jsx
-// This function gets called at build time
+// Essa função é chamada em tempo de construção
 export async function getStaticPaths() {
-  // Call an external API endpoint to get posts
+  // Cahamar uma API externa para buscar os dados
   const res = await fetch('https://.../posts')
   const posts = await res.json()
 
-  // Get the paths we want to pre-render based on posts
+  // Pegar os caminhos que quero pré-renderizar baseado nos posts
   const paths = posts.map((post) => ({
     params: { id: post.id },
   }))
 
-  // We'll pre-render only these paths at build time.
-  // { fallback: false } means other routes should 404.
+  // Vamos pré-renderizar apenas esses caminhos em tempo de construção
+  // { fallback: false } significa que outras rotas irão para página 404
   return { paths, fallback: false }
 }
 ```
 
-Also in `pages/posts/[id].js`, you need to export `getStaticProps` so that you can fetch the data about the post with this `id` and use it to pre-render the page:
+Também em `pages/posts/[id].js`, você precisa exportar `getStaticProps` para buscar os dados do post com esse `id` e poder pré-renderizar a página:
 
 ```jsx
 function Post({ post }) {
-  // Render post...
+  // Renderizar post...
 }
 
 export async function getStaticPaths() {
   // ...
 }
 
-// This also gets called at build time
+// Também precisa ser chamado em tempo de construção
 export async function getStaticProps({ params }) {
-  // params contains the post `id`.
-  // If the route is like /posts/1, then params.id is 1
+  // parametros que contenham o post `id`
+  // Se a rota for /posts/1, então params.id será 1
   const res = await fetch(`https://.../posts/${params.id}`)
   const post = await res.json()
 
-  // Pass post data to the page via props
+  // Enviar os dados do post via propriedades (props)
   return { props: { post } }
 }
 
 export default Post
 ```
 
-To learn more about how `getStaticPaths` works, check out the [Data Fetching documentation](/docs/basic-features/data-fetching/get-static-paths.md).
+Para saber mais sobre como `getStaticPahts` funciona, acesse [Documentação de Busca de Dados](/docs/basic-features/data-fetching/get-static-paths.md).
 
-### When should I use Static Generation?
+### Quando devo usar Geração Estática?
 
-We recommend using **Static Generation** (with and without data) whenever possible because your page can be built once and served by CDN, which makes it much faster than having a server render the page on every request.
+Recomendamos usar **Geração Estática** (com e sem dados) sempre que possível, pois suas páginas podem ser geradas uma vez e então serem armazenadas por CDN, dessa forma carregando mais rápido do que renderizando no servidor a cada requisição.
 
 You can use Static Generation for many types of pages, including:
+Você pode usar Geração Estática para muitos tipos de páginas, incluíndo:
 
-- Marketing pages
-- Blog posts and portfolios
-- E-commerce product listings
-- Help and documentation
+- Páginas de marketing
+- Posts de blog e portifólios 
+- Lista de produtos de e-commerce
+- Documentação de ajuda
 
-You should ask yourself: "Can I pre-render this page **ahead** of a user's request?" If the answer is yes, then you should choose Static Generation.
+Você deve estar se perguntando: "Posso pré-renderizar essa página **antes** da requisição do usuário?" Se a resposta for sim, então você deve usar Geração Estática.
 
-On the other hand, Static Generation is **not** a good idea if you cannot pre-render a page ahead of a user's request. Maybe your page shows frequently updated data, and the page content changes on every request.
+Por outro lado, Geração Estática **não** é uma boa ideia se você não pode pré-renderizar a página antes da requisição do usuário. Talvez sua página atualize dados frequentemente ou o conteúdo mude a cada requisição.
 
-In cases like this, you can do one of the following:
+Em casos assim, você pode usar uma das seguintes opções:
 
 - Use Static Generation with **Client-side data fetching:** You can skip pre-rendering some parts of a page and then use client-side JavaScript to populate them. To learn more about this approach, check out the [Data Fetching documentation](/docs/basic-features/data-fetching/client-side.md).
 - Use **Server-Side Rendering:** Next.js pre-renders a page on each request. It will be slower because the page cannot be cached by a CDN, but the pre-rendered page will always be up-to-date. We'll talk about this approach below.
