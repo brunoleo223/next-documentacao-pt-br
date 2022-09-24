@@ -22,7 +22,7 @@ export default Sobre
 
 Next.js tem suporte a roteamento dinâmico. Por exemplo, se você criar um arquivo chamado `pages/posts/[id].js`, então esse arquivo estará acessível em `posts/artigo-1`, `posts/artigo-2`, etc.
 
-> Para saber mais sobre roteamento dinâmico, clique em [Documentação Roteamento Dinâmico](/docs/routing-dynamic-routes.md).
+> Para saber mais sobre roteamento dinâmico, clique em [Documentação Roteamento Dinâmico](/docs/routing-dynamic-routes).
 
 ## Pré-renderização
 
@@ -34,14 +34,14 @@ Cada HTML gerado está associado ao mínimo de código Javascript necesário par
 
 Next.js tem duas formas de pré-renderização: **Geração Estática (Static Generation)** e **Renderização no Servidor (Server-side Rendering)**. A diferença está em **quando** o HTML da página é gerado.
 
-- [**Geração Estática (Recomendado)**](#static-generation-recommended): O HTML é gerado no **momento de construção** e será reutilizado em cada requisição.
-- [**Renderização no Servidor**](#server-side-rendering): O HTML é gerado em **cada requisição**.
+- [**Geração Estática (Recomendado)**](#geração-estática-recomendado): O HTML é gerado no **momento de construção** e será reutilizado em cada requisição.
+- [**Renderização no Servidor**](#renderização-no-servidor): O HTML é gerado em **cada requisição**.
 
 É importante ressaltar que o Next.js permite você **escolher** o tipo de pré-renderização que preferir utilizar para cada página. Você pode criar uma aplicação Next.js "híbrida" usando Geração Estática para algumas páginas e Renderização no Servidor em outras.
 
 **Recomendamos** usar **Geração Estática** em vez de Renderização no Servidor por motivos de performance. Páginas geradas estaticamente podem ser armazenadas em cache por CDN sem configurações extras para melhorar performance. De qualquer forma, em alguns casos a Renderização no Servidor pode ser a única opção.
 
-Você também pode usar a **Busca de dados do lado do cliente** junto com a Geração Estática ou Renderização no Servidor. Isso significa que algumas partes da página podem ser renderizadas inteiramente pelo Javascript do cliente. Para saber mais, acesse a documentação de [Busca de dados(Data Fetching)](/docs/basic-features/data-fetching/client-side.md).
+Você também pode usar a **Busca de dados do lado do cliente** junto com a Geração Estática ou Renderização no Servidor. Isso significa que algumas partes da página podem ser renderizadas inteiramente pelo Javascript do cliente. Para saber mais, acesse a documentação de [Busca de dados(Data Fetching)](/docs/basic-features-data-fetching-client-side).
 
 ## Geração Estática (Recomendado)
 
@@ -114,8 +114,6 @@ function Blog({ posts }) {
 export default Blog
 ```
 
-To fetch this data on pre-render, Next.js allows you to `export` an `async` function called `getStaticProps` from the same file. This function gets called at build time and lets you pass fetched data to the page's `props` on pre-render.
-
 Para buscar esses dados em pré-renderização, Next.js te permite `exporta` uma função `asincrona` chamada `getStaticProps` no mesmo arquivo. Essa função é chamada em tempo de construção e te permite passar os dados buscados para a página por meio das `propriedades (props)` antes da renderização. 
 
 ```jsx
@@ -141,13 +139,13 @@ export async function getStaticProps() {
 export default Blog
 ```
 
-Para saber mais sobre como `getStaticProps` funciona, acesse [Documentação de Busca de Dados](/docs/basic-features/data-fetching/get-static-props.md).
+Para saber mais sobre como `getStaticProps` funciona, acesse [Documentação de Busca de Dados](/docs/basic-features-data-fetching-get-static-props).
 
 #### Cenário 2: Os **caminhos** da sua página dependem de dados externos
 
 Next.js te permite criar páginas com **rotas dinâmicas**. Você pode, por exemplo, criar um arquivo chama `pages/posts/[id].js` para exibir um único post de blog baseado no `id`. Isso te permitirá exibir um post de blog com `id: 1` quando você acessar `posts/1`.
 
-> Para aprender mais sobre roteamente dinâmico, acesse [Documentação de Roteamento Dinâmico](/docs/routing/dynamic-routes.md).
+> Para aprender mais sobre roteamente dinâmico, acesse [Documentação de Roteamento Dinâmico](/docs/routing-dynamic-routes).
 
 Entretanto, o `id` que você quer pré-renderizar em tempo de construção depende de dados externos.
 
@@ -200,7 +198,7 @@ export async function getStaticProps({ params }) {
 export default Post
 ```
 
-Para saber mais sobre como `getStaticPahts` funciona, acesse [Documentação de Busca de Dados](/docs/basic-features/data-fetching/get-static-paths.md).
+Para saber mais sobre como `getStaticPahts` funciona, acesse [Documentação de Busca de Dados](/docs/basic-features-data-fetching-get-static-paths).
 
 ### Quando devo usar Geração Estática?
 
@@ -220,76 +218,77 @@ Por outro lado, Geração Estática **não** é uma boa ideia se você não pode
 
 Em casos assim, você pode usar uma das seguintes opções:
 
-- Use Static Generation with **Client-side data fetching:** You can skip pre-rendering some parts of a page and then use client-side JavaScript to populate them. To learn more about this approach, check out the [Data Fetching documentation](/docs/basic-features/data-fetching/client-side.md).
-- Use **Server-Side Rendering:** Next.js pre-renders a page on each request. It will be slower because the page cannot be cached by a CDN, but the pre-rendered page will always be up-to-date. We'll talk about this approach below.
+- Utilize Geração Estática com **Busca de dados do lado-cliente:** Você pode pular a pré-renderização em algumas partes da página e então usar o Javascript do lado-cliente para preenchê-la. Para saber mais sobre essa abordagem, acesse [Documentação de Busca de Dados](/docs/basic-features-data-fetching-client-side).
+- Utilize **Renderização no Servidor** do Next.js para pré-renderizar a página em cada requisição. Isso será mais lento porque não poderá usar cache de uma CDN, mas a pré-renderização da página estará sempre atualizada. Vamos falar sobre essa abordagem abaixo.
 
-## Server-side Rendering
+## Renderização no Servidor
 
-> Also referred to as "SSR" or "Dynamic Rendering".
+> Também conhecido como "SSR" ou "Renderização Dinâmica"
 
-If a page uses **Server-side Rendering**, the page HTML is generated on **each request**.
+Se a página utuliza **SSR**, a página HTML é gerada em cada requisição.
 
-To use Server-side Rendering for a page, you need to `export` an `async` function called `getServerSideProps`. This function will be called by the server on every request.
+Para usar SSR em uma página, você precisará `exportar` uma função `assincrona` chamada `getServerSideProps`. Essa função será chamada pelo servidor em cada requisição. 
 
-For example, suppose that your page needs to pre-render frequently updated data (fetched from an external API). You can write `getServerSideProps` which fetches this data and passes it to `Page` like below:
+Por exemplo, digamos que sua página precisa ser pré-renderizada constantemente atualizando dados (buscados de uma API externa). Você pode escrever `getServerSideProps` que irá buscar os dados e passá-los para a `Página` dessa forma:
 
 ```jsx
 function Page({ data }) {
-  // Render data...
+  // Renderização de dados
 }
 
-// This gets called on every request
+// Função executada em cada resquisição 
 export async function getServerSideProps() {
-  // Fetch data from external API
+  // Busca de dados em uma API externa
   const res = await fetch(`https://.../data`)
   const data = await res.json()
 
-  // Pass data to the page via props
+  // Envio dos dados para página por meio das propriedades (props)
   return { props: { data } }
 }
 
 export default Page
 ```
 
-As you can see, `getServerSideProps` is similar to `getStaticProps`, but the difference is that `getServerSideProps` is run on every request instead of on build time.
+Como você pode ver, `getServerSideProps` é similar a `getStaticProps`, a diferença é que `getServerSideProps` é executado em cada requisição em vez de no momento de construção da aplicação.
 
-To learn more about how `getServerSideProps` works, check out our [Data Fetching documentation](/docs/basic-features/data-fetching/get-server-side-props.md)
+Para saber mais sobre como `getServerSideProps` funciona, acesse [Documentação de Busca de Dados](/docs/basic-features-data-fetching-get-server-side-props)
 
-## Summary
+## Resumo
 
-We've discussed two forms of pre-rendering for Next.js.
+Vimos duas formas de prérenderização com Next.js
 
-- **Static Generation (Recommended):** The HTML is generated at **build time** and will be reused on each request. To make a page use Static Generation, either export the page component, or export `getStaticProps` (and `getStaticPaths` if necessary). It's great for pages that can be pre-rendered ahead of a user's request. You can also use it with Client-side Rendering to bring in additional data.
-- **Server-side Rendering:** The HTML is generated on **each request**. To make a page use Server-side Rendering, export `getServerSideProps`. Because Server-side Rendering results in slower performance than Static Generation, use this only if absolutely necessary.
+- **Geração Estática (Recomendado):** O HTML é gerado no **momento de construção** da aplicação e será reutilizado em cada requisição. Para usar Geração Estática em uma página, exporte a página ou exporte `getStaticProps` (e `getStaticPaths` se necessário). Isso é bom para páginas que podem ser pré-renderizadas antes da requisição do cliente. Você também pode usar com Renderização no lado-cliente para carregar dados adicionais.
 
-## Learn more
+- **Renderização no Servidor:** O HTML é gerado em **cada requisição**. Para usar SSR, exporte `getServerSideProps`. Como os resultados com SSR são menos performáticos que Geração Estática, use SSR apenas quando for realmente necessário.
 
-We recommend you to read the following sections next:
+## Saiba mais
+
+Recomendamos que você leia os seguintes itens:
 
 <div class="card">
-  <a href="/docs/basic-features/data-fetching/overview.md">
-    <b>Data Fetching:</b>
-    <small>Learn more about data fetching in Next.js.</small>
+  <a href="/docs/basic-features-data-fetching-overview">
+    <b>Busca de Dados:</b>
+    <small>Saiba mais sobre busca de dados com Next.js.</small>
   </a>
 </div>
 
 <div class="card">
-  <a href="/docs/advanced-features/preview-mode.md">
-    <b>Preview Mode:</b>
-    <small>Learn more about the preview mode in Next.js.</small>
+  <a href="/docs/advanced-features-preview-mode">
+    <b>Modo de visualização:</b>
+    <small>Saiba mais sobre o modo de visualização com Next.js.</small>
   </a>
 </div>
 
 <div class="card">
-  <a href="/docs/routing/introduction.md">
-    <b>Routing:</b>
-    <small>Learn more about routing in Next.js.</small>
+  <a href="/docs/routing-introduction">
+    <b>Roteamento:</b>
+    <small>Saiba mais sobre roteamento com Next.js.</small>
   </a>
 </div>
 
 <div class="card">
-  <a href="/docs/basic-features/typescript.md#pages">
+  <a href="/docs/basic-features-typescript#pages">
     <b>TypeScript:</b>
-    <small>Add TypeScript to your pages.</small>
+    <small>Adicione TypeScript em suas páginas.</small>
   </a>
 </div>
