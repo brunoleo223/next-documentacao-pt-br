@@ -2,315 +2,392 @@
   "routes": [
     {
       "title": "Documentação",
+      "status": "translated",
       "heading": true,
       "routes": [
         {
           "title": "Introdução",
+          "status": "translated",
           "path": "/introcucao"
         },
         {
           "title": "Recursos Básicos",
+          "status": "translated",
           "open": true,
           "routes": [
             {
               "title": "Páginas",
+              "status": "translated",
               "path": "/basic-features-pages"
             },
             {
-              "title": "Data Fetching",
+              "title": "Busca de Dados",
+              "status": "translated",
               "routes": [
                 {
-                  "title": "Overview",
+                  "title": "Introdução",
+                  "status": "translated",
                   "path": "/basic-features-data-fetching-overview"
                 },
                 {
                   "title": "getServerSideProps",
+                  "status": "pending",
                   "path": "/basic-features-data-fetching-get-server-side-props"
                 },
                 {
                   "title": "getStaticPaths",
+                  "status": "pending",
                   "path": "/basic-features-data-fetching-get-static-paths"
                 },
                 {
                   "title": "getStaticProps",
+                  "status": "pending",
                   "path": "/basic-features-data-fetching-get-static-props"
                 },
                 {
                   "title": "Incremental Static Regeneration",
+                  "status": "pending",
                   "path": "/basic-features-data-fetching-incremental-static-regeneration"
                 },
                 {
                   "title": "Client side",
+                  "status": "pending",
                   "path": "/basic-features-data-fetching-client-side"
                 }
               ]
             },
             {
               "title": "Built-in CSS Support",
+              "status": "pending",
               "path": "/basic-features-built-in-css-support"
             },
             {
               "title": "Layouts",
+              "status": "pending",
               "path": "/basic-features-layouts"
             },
             {
               "title": "Image Optimization",
+              "status": "pending",
               "path": "/basic-features-image-optimization"
             },
             {
               "title": "Font Optimization",
+              "status": "pending",
               "path": "/basic-features-font-optimization"
             },
             {
               "title": "Static File Serving",
+              "status": "pending",
               "path": "/basic-features-static-file-serving"
             },
             {
               "title": "Fast Refresh",
+              "status": "pending",
               "path": "/basic-features-fast-refresh"
             },
             {
               "title": "ESLint",
+              "status": "pending",
               "path": "/basic-features-eslint"
             },
             {
               "title": "TypeScript",
+              "status": "pending",
               "path": "/basic-features-typescript"
             },
             {
               "title": "Environment Variables",
+              "status": "pending",
               "path": "/basic-features-environment-variables"
             },
             {
               "title": "Supported Browsers and Features",
+              "status": "pending",
               "path": "/basic-features-supported-browsers-features"
             },
             {
               "title": "Handling Scripts",
+              "status": "pending",
               "path": "/basic-features-script"
             }
           ]
         },
         {
           "title": "Routing",
+          "status": "pending",
           "routes": [
             {
               "title": "Introduction",
+              "status": "pending",
               "path": "/routing-introduction"
             },
             {
               "title": "Dynamic Routes",
+              "status": "pending",
               "path": "/routing-dynamic-routes"
             },
             {
               "title": "Imperatively",
+              "status": "pending",
               "path": "/routing-imperatively"
             },
             {
               "title": "Shallow Routing",
+              "status": "pending",
               "path": "/routing-shallow-routing"
             }
           ]
         },
         {
           "title": "API Routes",
+          "status": "pending",
           "routes": [
             {
               "title": "Introduction",
+              "status": "pending",
               "path": "/api-routes-introduction"
             },
             {
               "title": "Dynamic API Routes",
+              "status": "pending",
               "path": "/api-routes-dynamic-api-routes"
             },
             {
               "title": "Request Helpers",
+              "status": "pending",
               "path": "/api-routes-request-helpers"
             },
             {
               "title": "Response Helpers",
+              "status": "pending",
               "path": "/api-routes-response-helpers"
             },
             {
               "title": "Edge API Routes (Beta)",
+              "status": "pending",
               "path": "/api-routes-edge-api-routes"
             }
           ]
         },
         {
           "title": "Going to Production",
+          "status": "pending",
           "path": "/going-to-production"
         },
         {
           "title": "Deployment",
+          "status": "pending",
           "path": "/deployment"
         },
         {
           "title": "Authentication",
+          "status": "pending",
           "path": "/authentication"
         },
         {
           "title": "Testing",
+          "status": "pending",
           "path": "/testing"
         },
         {
           "title": "Accessibility",
+          "status": "pending",
           "path": "/accessibility"
         },
         {
           "title": "Guides",
+          "status": "pending",
           "routes": [
             {
               "title": "Building Forms",
+              "status": "pending",
               "path": "/guides-building-forms"
             }
           ]
         },
         {
           "title": "Advanced Features",
+          "status": "pending",
           "routes": [
             {
               "title": "Next.js Compiler",
+              "status": "pending",
               "path": "/advanced-features-compiler"
             },
             {
               "title": "Preview Mode",
+              "status": "pending",
               "path": "/advanced-features-preview-mode"
             },
             {
               "title": "Dynamic Import",
+              "status": "pending",
               "path": "/advanced-features-dynamic-import"
             },
             {
               "title": "Automatic Static Optimization",
+              "status": "pending",
               "path": "/advanced-features-automatic-static-optimization"
             },
             {
               "title": "Static HTML Export",
+              "status": "pending",
               "path": "/advanced-features-static-html-export"
             },
             {
               "title": "Absolute Imports and Module Path Aliases",
+              "status": "pending",
               "path": "/advanced-features-module-path-aliases"
             },
             {
               "title": "Using MDX",
+              "status": "pending",
               "path": "/advanced-features-using-mdx"
             },
             {
               "title": "AMP Support",
+              "status": "pending",
               "routes": [
                 {
                   "title": "Introduction",
+                  "status": "pending",
                   "path": "/advanced-features-amp-support-introduction"
                 },
                 {
                   "title": "Adding AMP Components",
+                  "status": "pending",
                   "path": "/advanced-features-amp-support-adding-amp-components"
                 },
                 {
                   "title": "AMP Validation",
+                  "status": "pending",
                   "path": "/advanced-features-amp-support-amp-validation"
                 },
                 {
                   "title": "AMP in Static HTML export",
+                  "status": "pending",
                   "path": "/advanced-features-amp-support-amp-in-static-html-export"
                 },
                 {
                   "title": "TypeScript",
+                  "status": "pending",
                   "path": "/advanced-features-amp-support-typescript"
                 }
               ]
             },
             {
               "title": "Customizing Babel Config",
+              "status": "pending",
               "path": "/advanced-features-customizing-babel-config"
             },
             {
               "title": "Customizing PostCSS Config",
+              "status": "pending",
               "path": "/advanced-features-customizing-postcss-config"
             },
             {
               "title": "Custom Server",
+              "status": "pending",
               "path": "/advanced-features-custom-server"
             },
             {
               "title": "Custom `App`",
+              "status": "pending",
               "path": "/advanced-features-custom-app"
             },
             {
               "title": "Custom `Document`",
+              "status": "pending",
               "path": "/advanced-features-custom-document"
             },
             {
               "title": "Custom Error Page",
+              "status": "pending",
               "path": "/advanced-features-custom-error-page"
             },
             {
               "title": "`src` Directory",
+              "status": "pending",
               "path": "/advanced-features-src-directory"
             },
             {
               "title": "CI Build Caching",
+              "status": "pending",
               "path": "/advanced-features-ci-build-caching"
             },
             {
               "title": "Multi Zones",
+              "status": "pending",
               "path": "/advanced-features-multi-zones"
             },
             {
               "title": "Measuring performance",
+              "status": "pending",
               "path": "/advanced-features-measuring-performance"
             },
             {
               "title": "Middleware",
+              "status": "pending",
               "path": "/advanced-features-middleware"
             },
             {
               "title": "Debugging",
+              "status": "pending",
               "path": "/advanced-features-debugging"
             },
             {
               "title": "Error Handling",
+              "status": "pending",
               "path": "/advanced-features-error-handling"
             },
             {
               "title": "Source Maps",
+              "status": "pending",
               "path": "/advanced-features-source-maps"
             },
             {
               "title": "Codemods",
+              "status": "pending",
               "path": "/advanced-features-codemods"
             },
             {
               "title": "Internationalized Routing",
+              "status": "pending",
               "path": "/advanced-features-i18n-routing"
             },
             {
               "title": "Output File Tracing",
+              "status": "pending",
               "path": "/advanced-features-output-file-tracing"
             },
             {
               "title": "Security Headers",
+              "status": "pending",
               "path": "/advanced-features-security-headers"
             },
             {
               "title": "React 18",
+              "status": "pending",
               "routes": [
                 {
                   "title": "Overview",
+                  "status": "pending",
                   "path": "/advanced-features-react-18-overview"
                 },
                 {
                   "title": "Streaming SSR",
+                  "status": "pending",
                   "path": "/advanced-features-react-18-streaming"
                 },
                 {
                   "title": "React Server Components",
+                  "status": "pending",
                   "path": "/advanced-features-react-18-server-components"
                 },
                 {
                   "title": "Switchable Runtime",
+                  "status": "pending",
                   "path": "/advanced-features-react-18-switchable-runtime"
                 }
               ]
@@ -319,205 +396,255 @@
         },
         {
           "title": "Upgrade Guide",
+          "status": "pending",
           "path": "/upgrading"
         },
         {
           "title": "Migrating to Next.js",
+          "status": "pending",
           "routes": [
             {
               "title": "Incrementally Adopting Next.js",
+              "status": "pending",
               "path": "/migrating-incremental-adoption"
             },
             {
               "title": "Migrating from Gatsby",
+              "status": "pending",
               "path": "/migrating-from-gatsby"
             },
             {
               "title": "Migrating from Create React App",
+              "status": "pending",
               "path": "/migrating-from-create-react-app"
             },
             {
               "title": "Migrating from React Router",
+              "status": "pending",
               "path": "/migrating-from-react-router"
             }
           ]
         },
         {
           "title": "FAQ",
+          "status": "pending",
           "path": "/faq"
         }
       ]
     },
     {
       "title": "API Reference",
+      "status": "pending",
       "heading": true,
       "routes": [
         {
           "title": "CLI",
+          "status": "pending",
           "path": "/api-reference-cli"
         },
         {
           "title": "Create Next App",
+          "status": "pending",
           "path": "/api-reference-create-next-app"
         },
         {
           "title": "next-router",
+          "status": "pending",
           "path": "/api-reference-next-router"
         },
         {
           "title": "next-link",
+          "status": "pending",
           "path": "/api-reference-next-link"
         },
         {
           "title": "next-image",
+          "status": "pending",
           "path": "/api-reference-next-image"
         },
         {
           "title": "next-script",
+          "status": "pending",
           "path": "/api-reference-next-script"
         },
         {
           "title": "next-head",
+          "status": "pending",
           "path": "/api-reference-next-head"
         },
         {
           "title": "next-amp",
+          "status": "pending",
           "path": "/api-reference-next-amp"
         },
         {
           "title": "next-server",
+          "status": "pending",
           "path": "/api-reference-next-server"
         },
         {
           "title": "next-future-image",
+          "status": "pending",
           "path": "/api-reference-next-future-image"
         },
         {
           "title": "Edge Runtime",
+          "status": "pending",
           "path": "/api-reference-edge-runtime"
         },
         {
           "title": "Data Fetching",
+          "status": "pending",
           "routes": [
             {
               "title": "getInitialProps",
+              "status": "pending",
               "path": "/api-reference-data-fetching-get-initial-props"
             },
             {
               "title": "getServerSideProps",
+              "status": "pending",
               "path": "/api-reference-data-fetching-get-server-side-props"
             },
             {
               "title": "getStaticPaths",
+              "status": "pending",
               "path": "/api-reference-data-fetching-get-static-paths"
             },
             {
               "title": "getStaticProps",
+              "status": "pending",
               "path": "/api-reference-data-fetching-get-static-props"
             }
           ]
         },
         {
           "title": "Static Optimization Indicator",
+          "status": "pending",
           "path": "/api-reference-next.config.js-static-optimization-indicator"
         },
         {
           "title": "next.config.js",
+          "status": "pending",
           "routes": [
             {
               "title": "Introduction",
+              "status": "pending",
               "path": "/api-reference-next.config.js-introduction"
             },
             {
               "title": "Environment Variables",
+              "status": "pending",
               "path": "/api-reference-next.config.js-environment-variables"
             },
             {
               "title": "Base Path",
+              "status": "pending",
               "path": "/api-reference-next.config.js-basepath"
             },
             {
               "title": "Rewrites",
+              "status": "pending",
               "path": "/api-reference-next.config.js-rewrites"
             },
             {
               "title": "Redirects",
+              "status": "pending",
               "path": "/api-reference-next.config.js-redirects"
             },
             {
               "title": "Custom Headers",
+              "status": "pending",
               "path": "/api-reference-next.config.js-headers"
             },
             {
               "title": "Custom Page Extensions",
+              "status": "pending",
               "path": "/api-reference-next.config.js-custom-page-extensions"
             },
             {
               "title": "CDN Support with Asset Prefix",
+              "status": "pending",
               "path": "/api-reference-next.config.js-cdn-support-with-asset-prefix"
             },
             {
               "title": "Custom Webpack Config",
+              "status": "pending",
               "path": "/api-reference-next.config.js-custom-webpack-config"
             },
             {
               "title": "Compression",
+              "status": "pending",
               "path": "/api-reference-next.config.js-compression"
             },
             {
               "title": "Runtime Configuration",
+              "status": "pending",
               "path": "/api-reference-next.config.js-runtime-configuration"
             },
             {
               "title": "Disabling x-powered-by",
+              "status": "pending",
               "path": "/api-reference-next.config.js-disabling-x-powered-by"
             },
             {
               "title": "Disabling ETag Generation",
+              "status": "pending",
               "path": "/api-reference-next.config.js-disabling-etag-generation"
             },
             {
               "title": "Disabling HTTP Keep-Alive",
+              "status": "pending",
               "path": "/api-reference-next.config.js-disabling-http-keep-alive"
             },
             {
               "title": "Setting a custom build directory",
+              "status": "pending",
               "path": "/api-reference-next.config.js-setting-a-custom-build-directory"
             },
             {
               "title": "Configuring the Build ID",
+              "status": "pending",
               "path": "/api-reference-next.config.js-configuring-the-build-id"
             },
             {
               "title": "Configuring onDemandEntries",
+              "status": "pending",
               "path": "/api-reference-next.config.js-configuring-onDemandEntries"
             },
             {
               "title": "Ignoring ESLint",
+              "status": "pending",
               "path": "/api-reference-next.config.js-ignoring-eslint"
             },
             {
               "title": "Ignoring TypeScript Errors",
+              "status": "pending",
               "path": "/api-reference-next.config.js-ignoring-typescript-errors"
             },
             {
               "title": "exportPathMap",
+              "status": "pending",
               "path": "/api-reference-next.config.js-exportPathMap"
             },
             {
               "title": "Trailing Slash",
+              "status": "pending",
               "path": "/api-reference-next.config.js-trailing-slash"
             },
             {
               "title": "React Strict Mode",
+              "status": "pending",
               "path": "/api-reference-next.config.js-react-strict-mode"
             },
             {
               "title": "URL Imports",
+              "status": "pending",
               "path": "/api-reference-next.config.js-url-imports"
             },
             {
               "title": "Build indicator",
+              "status": "pending",
               "path": "/api-reference-next.config.js-build-indicator"
             }
           ]
