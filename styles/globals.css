@@ -44,3 +44,16 @@ pre {
   max-width: 100%;
   overflow-x: scroll;
 }
+
+.barra{
+  background-color: #ccc;
+  height: 5px;
+  position: relative;
+}
+
+.barra span{
+  background-color: #0074de;
+  height: 5px;
+  position: absolute;
+  width: 2%;
+}

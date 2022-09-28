@@ -13,8 +13,8 @@ export function Menu() {
             if (item.routes) {
                 return (
                 <>
-                    <details open>
-                        <summary key={item.title}>
+                    <details open key={item.title}>
+                        <summary>
                             {item.title}
                         </summary>
                         <ul>
@@ -22,8 +22,8 @@ export function Menu() {
                             if (child.routes) {
                             return (
                                 <>
-                                <details>
-                                <summary key={child.title}>
+                                <details key={child.title}>
+                                <summary >
                                     {child.title}
                                 </summary>
                                 <ul>
@@ -31,8 +31,8 @@ export function Menu() {
                                     if(grandchild.routes) {
                                         return (
                                             <>
-                                            <details>
-                                                <summary key={grandchild.title}>
+                                            <details key={grandchild.title}>
+                                                <summary>
                                                     {grandchild.title}
                                                 </summary>
                                                 <ul>

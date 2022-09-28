@@ -1,8 +1,14 @@
 function App() {
+  const translated = 3;
   return (
     <>
       <h1>Next.js Documentação em Português 🇧🇷</h1>
       <p>Esse projeto busca traduzir e manter atualizada a documentação oficial do Next.js para Português Brasil.</p>
+      <h2>Progresso</h2>
+      <p>{translated} páginas de 139 já foram traduzidas. Tradução {Math.floor(translated * 100 / 139)}% completa.</p>
+      <div className="barra">
+        <span></span>
+      </div>
       <h2>Próximas etapas</h2>
       <ul>
         <li>
