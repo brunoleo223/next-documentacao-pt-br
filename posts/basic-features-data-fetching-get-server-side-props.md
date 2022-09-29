@@ -4,90 +4,91 @@ description: Fetch data on each request with `getServerSideProps`.
 
 # getServerSideProps
 
-If you export a function called `getServerSideProps` (Server-Side Rendering) from a page, Next.js will pre-render this page on each request using the data returned by `getServerSideProps`.
+Se você exportar uma função chamada `getServerSideProps` (SSR) em uma página, o Next.js irá pré-renderizar essa página em cada requisição usando os dados retornados pelo `getServerSideProps`.
 
 ```js
 export async function getServerSideProps(context) {
   return {
-    props: {}, // will be passed to the page component as props
+    props: {}, // props será enviado para o componente da página como props
   }
 }
 ```
 
-> Note that irrespective of rendering type, any `props` will be passed to the page component and can be viewed on the client-side in the initial HTML. This is to allow the page to be [hydrated](https://reactjs.org/docs/react-dom.html#hydrate) correctly. Make sure that you don't pass any sensitive information that shouldn't be available on the client in `props`.
+> Observer que, independentemente do tipo de renderização, toda `props` será enviada para o componente da página e poderá ser vizualizada no HTML incicial do lado-cliente. Isso é para permitir que a página possa ser [hidratada](https://reactjs.org/docs/react-dom.html#hydrate) corretamente. Tenha certeza que você não está passando nenhuma informação sensível que não deve estar disponível ao usuário final.
 
-## When does getServerSideProps run
+## Quando getServerSideProps executa
 
-`getServerSideProps` only runs on server-side and never runs on the browser. If a page uses `getServerSideProps`, then:
+`getServerSideProps` executa apenas no lado do servidor e nunca no navegador. Se uma página utiliza `getServerSideProps`, então:
 
-- When you request this page directly, `getServerSideProps` runs at request time, and this page will be pre-rendered with the returned props
-- When you request this page on client-side page transitions through [`next/link`](/docs/api-reference/next/link.md) or [`next/router`](/docs/api-reference/next/router.md), Next.js sends an API request to the server, which runs `getServerSideProps`
+- Quando você acessa uma página o `getServerSideProps` executa no momento da requisição, então essa página será pré-renderizada com o retorno das props.
+- Quando você acessa uma página, as transações no servidor passam por [`next/link`](/docs/api-reference-next-link) ou [`next/router`](/docs/api-reference-next-router), Next.js envia uma requisição para a API do servidor, que então executa o `getServerSideProps`.
 
-`getServerSideProps` returns JSON which will be used to render the page. All this work will be handled automatically by Next.js, so you don’t need to do anything extra as long as you have `getServerSideProps` defined.
+`getServerSideProps` returna um JSON que será usado para renderizar a página. Todo esse trabalho é automaticamente gerenciado pelo Next/js, então você não precisa fazer nada extra após configurar o `getServerSideProps`.
 
-You can use the [next-code-elimination tool](https://next-code-elimination.vercel.app/) to verify what Next.js eliminates from the client-side bundle.
+Você pode usar a [ferramenta next-eliminacao-codigo](https://next-code-elimination.vercel.app/) para verificar o que Next.js elimina no bundle do lado-cliente.
 
-`getServerSideProps` can only be exported from a **page**. You can’t export it from non-page files.
+`getServerSideProps` pode ser exportado apenas em uma **página**. Você não pode usá-lo em outros arquivos.
 
-Note that you must export `getServerSideProps` as a standalone function — it will **not** work if you add `getServerSideProps` as a property of the page component.
+Perceba que você precisa exportar o `getServerSideProps` como uma função saparada - `getServerSideProps` não funcionará como uma propriedade de um componente de página.
 
-The [`getServerSideProps` API reference](/docs/api-reference/data-fetching/get-server-side-props.md) covers all parameters and props that can be used with `getServerSideProps`.
+A [API de referencia do `getServerSideProps`](/docs/api-reference-data-fetching-get-server-side-props) cobre todos os parâmetros que podem ser usados com `getServerSideProps`.
 
-## When should I use getServerSideProps
+## Quando devo usar getServerSideProps
 
-You should use `getServerSideProps` only if you need to render a page whose data must be fetched at request time. This could be due to the nature of the data or properties of the request (such as `authorization` headers or geo location). Pages using `getServerSideProps` will be server side rendered at request time and only be cached if [cache-control headers are configured](/docs/going-to-production#caching).
+Você deve usar `getServerSideProps` apenas se precisar renderizar uma página que precisa de dados externos no momento da requisição. Isso pode ser devido à natureza dos dados ou propriedades da requisição (assim como cabeçalhos de `autorização` ou geo localização). Páginas usando `getServerSideProps` serão renderizadas no servidor no momento da requisição e mantida em cache se [os cabeçalhos cache-control forem configurados](/docs/going-to-production#caching).
 
-If you do not need to render the data during the request, then you should consider fetching data on the [client side](#fetching-data-on-the-client-side) or [`getStaticProps`](/docs/basic-features/data-fetching/get-static-props).
+Se você não precisa renderizar dados durante a requisição, então você deve considerar buscar dados no [lado-cliente](#buscando-dados-no-lado-cliente) ou [`getStaticProps`](/docs/basic-features-data-fetching-get-static-props).
 
-### getServerSideProps or API Routes
+### getServerSideProps ou rodas de API
 
-It can be tempting to reach for an [API Route](/docs/api-routes/introduction.md) when you want to fetch data from the server, then call that API route from `getServerSideProps`. This is an unnecessary and inefficient approach, as it will cause an extra request to be made due to both `getServerSideProps` and API Routes running on the server.
+Pode ser tentador usar uma [rota de API](/docs/api-routes-introduction) quando você quer buscar dados do servidor, então chamando uma API com `getServerSideProps`. Essa é uma abordagem desnecessária e ineficiente, pois fará requisições extras devido `getServerSiteProps` e rotas de API estarem rodando juntas no servidor.
 
-Take the following example. An API route is used to fetch some data from a CMS. That API route is then called directly from `getServerSideProps`. This produces an additional call, reducing performance. Instead, directly import the logic used inside your API Route into `getServerSideProps`. This could mean calling a CMS, database, or other API directly from inside `getServerSideProps`.
+Veja o exemplo a seguir: Uma roda de API é usada para buscar alguns dados de um CMS. Essa rota é então chamada diretamente pelo `getServerSideProps`. Isso produz uma chamada adicional, reduzindo performance. Em vez disso, importe diretamente a lógica usada em sua roda API para dentro do `getServerSideProps`. Isso pode significar chamar um CMS, banco de dados, ou outra API diretamenta de dentro do `getServerSideProps`.
 
-## Fetching data on the client side
+## Buscando dados no lado-cliente
 
-If your page contains frequently updating data, and you don’t need to pre-render the data, you can fetch the data on the [client side](/docs/basic-features/data-fetching/client-side.md). An example of this is user-specific data:
+Se sua página possui dados que atualizam frequentemente, então você não precisa pré-renderizar esses dados, você pode buscar os dados no [lado-cliente](/docs/basic-features-data-fetching-client-side). Um exemplo disso são dados específicos do usuário:
 
-- First, immediately show the page without data. Parts of the page can be pre-rendered using Static Generation. You can show loading states for missing data
-- Then, fetch the data on the client side and display it when ready
+- Primeiro, carregue sua página imediatamente sem dados. Parte da página pode ser pré-renderizada usando Geração Estática. Você pode exibir 'carregando' onde ainda não há dados.
 
-This approach works well for user dashboard pages, for example. Because a dashboard is a private, user-specific page, SEO is not relevant and the page doesn’t need to be pre-rendered. The data is frequently updated, which requires request-time data fetching.
+- Então, busque os dados no lado-cliente e os exiba quando estiverem prontos.
 
-## Using getServerSideProps to fetch data at request time
+Essa abordagem trabalha bem páginas em paineis de controle, por exemplo. Como um painel de contole é privado, dados de usuário e SEO não são relevantes e as páginas não precisam ser pré-renderizadas. Os dados são atualizados cosntantemente, o que requer busca de dados no momento da requisição.
 
-The following example shows how to fetch data at request time and pre-render the result.
+## Usando getServerSideProps para buscar dados no momento da requisição
+
+O seguinte exemplo mostra como buscar dados no momento da requisição e então pré-renderizar o resultado.
 
 ```jsx
 function Page({ data }) {
-  // Render data...
+  // Renderização dos dados...
 }
 
-// This gets called on every request
+// Essa chamada será feita em cada requisição
 export async function getServerSideProps() {
-  // Fetch data from external API
+  // Buscando dados uma API externa
   const res = await fetch(`https://.../data`)
   const data = await res.json()
 
-  // Pass data to the page via props
+  // Enviando os dados para a página pelas props
   return { props: { data } }
 }
 
 export default Page
 ```
 
-## Caching with Server-Side Rendering (SSR)
+## Salvando em cache com Renderização no Servidor (SSR)
 
-You can use caching headers (`Cache-Control`) inside `getServerSideProps` to cache dynamic responses. For example, using [`stale-while-revalidate`](https://web.dev/stale-while-revalidate/).
+Você pode usar cabeçalhos de cache (`Cache-Control`) dentro do `getServerSideProps` para armazenar respostas dinâmicas em cache. Pro exemplo, usando [`stale-while-revalidate`](https://web.dev/stale-while-revalidate/).
 
 ```jsx
-// This value is considered fresh for ten seconds (s-maxage=10).
-// If a request is repeated within the next 10 seconds, the previously
-// cached value will still be fresh. If the request is repeated before 59 seconds,
-// the cached value will be stale but still render (stale-while-revalidate=59).
+// Esses valores são considerados frecos com no máximo dez segundos (s-maxage=10).
+// Se a requisição for repetida nos próximos 10 segundos, os valores
+// armazenados em cache ainda serão considerados frescos. Se a requisição se repetir em 59 segundos
+// os valores em cache serão considerados obsoletos, mas serão renderizados (stale-while-revalidate=59).
 //
-// In the background, a revalidation request will be made to populate the cache
-// with a fresh value. If you refresh the page, you will see the new value.
+// Em paralelo uma requisiçao de revalidação será feita para atualizar o cache
+// com os valores novos. Se você atualizar a página, então verá os novos dados.
 export async function getServerSideProps({ req, res }) {
   res.setHeader(
     'Cache-Control',
@@ -100,19 +101,19 @@ export async function getServerSideProps({ req, res }) {
 }
 ```
 
-Learn more about [caching](/docs/going-to-production.md).
+Saiba mais sobre [cache](/docs/going-to-production).
 
-## Does getServerSideProps render an error page
+## getServerSideProps renderiza uma página de erro
 
-If an error is thrown inside `getServerSideProps`, it will show the `pages/500.js` file. Check out the documentation for [500 page](/docs/advanced-features/custom-error-page#500-page) to learn more on how to create it. During development this file will not be used and the dev overlay will be shown instead.
+Se um erro for lançado dentro do `getServerSideProps`, o arquivo `pages/500.js` será exibido. Veja a documentação da [página 500](/docs/advanced-features-custom-error-page#500-page) para saber mais sobre criá-la. Durante o desenvolvimento, esse arquivo não será usado e a sobreposição dev será mostrada.
 
-## Related
+## Relacionados
 
-For more information on what to do next, we recommend the following sections:
+Para mais informações sobre o que fazer em seguida, recomedamos o seguinte:
 
 <div class="card">
-  <a href="/docs/api-reference/data-fetching/get-server-side-props.md">
-    <b>getServerSideProps API Reference</b>
-    <small>Read the API Reference for getServerSideProps</small>
+  <a href="/docs/api-reference-data-fetching-get-server-side-props">
+    <b>Referência da API getServerSideProps</b>
+    <small>Leia sobre a Referência da API getServerSideProps</small>
   </a>
 </div>

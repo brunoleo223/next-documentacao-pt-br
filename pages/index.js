@@ -1,5 +1,5 @@
 function App() {
-  const translated = 3;
+  const translated = 4;
   return (
     <>
       <h1>Next.js Documentação em Português 🇧🇷</h1>
