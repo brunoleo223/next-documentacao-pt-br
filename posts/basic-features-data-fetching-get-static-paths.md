@@ -4,35 +4,35 @@ description: Fetch data and generate static pages with `getStaticProps`. Learn m
 
 # getStaticPaths
 
-If a page has [Dynamic Routes](/docs/routing/dynamic-routes.md) and uses `getStaticProps`, it needs to define a list of paths to be statically generated.
+Se a página possui [Rotas Dinâmicas](/docs/routing/dynamic-routes.md) e usa `getStaticProps`, então você precisa definir uma lista de caminhos que serão gerados estáticamente. 
 
-When you export a function called `getStaticPaths` (Static Site Generation) from a page that uses dynamic routes, Next.js will statically pre-render all the paths specified by `getStaticPaths`.
+Quando você exporta uma função chamada `getStaticPaths` (Geração de Site Estático) de uma página que usa rotas dinâmicas, o Next.js irá pré-renderizar estaticamente todos os caminhos especificados em `getStaticPaths`.
 
 ```jsx
 // pages/posts/[id].js
 
-// Generates `/posts/1` and `/posts/2`
+// Será gerado `/posts/1` e `/posts/2`
 export async function getStaticPaths() {
   return {
     paths: [{ params: { id: '1' } }, { params: { id: '2' } }],
-    fallback: false, // can also be true or 'blocking'
+    fallback: false, // também pode ser true ou blocking
   }
 }
 
-// `getStaticPaths` requires using `getStaticProps`
+// `getStaticPaths` precisa usar `getStaticProps`
 export async function getStaticProps(context) {
   return {
-    // Passed to the page component as props
+    // Envia para o componente de página via props
     props: { post: {} },
   }
 }
 
 export default function Post({ post }) {
-  // Render post...
+  // Renderizar post...
 }
 ```
 
-The [`getStaticPaths` API reference](/docs/api-reference/data-fetching/get-static-paths.md) covers all parameters and props that can be used with `getStaticPaths`.
+A [API de referência de `getStaticPaths`](/docs/api-reference/data-fetching/get-static-paths.md) trata sobre todos os parâmetros e propriedades que podem ser usadas com `getStaticPaths` .
 
 ## When should I use getStaticPaths?
 
