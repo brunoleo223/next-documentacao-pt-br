@@ -34,27 +34,27 @@ export default function Post({ post }) {
 
 A [API de referência de `getStaticPaths`](/docs/api-reference/data-fetching/get-static-paths.md) trata sobre todos os parâmetros e propriedades que podem ser usadas com `getStaticPaths` .
 
-## When should I use getStaticPaths?
+## Quando devo usar getStaticPaths?
 
-You should use `getStaticPaths` if you’re statically pre-rendering pages that use dynamic routes and:
+Você deve usar `getStaticPaths` se vocês estiver pré-renderizando estáticamente páginas que usam rotas dinâmicas e:
 
-- The data comes from a headless CMS
-- The data comes from a database
-- The data comes from the filesystem
-- The data can be publicly cached (not user-specific)
-- The page must be pre-rendered (for SEO) and be very fast — `getStaticProps` generates `HTML` and `JSON` files, both of which can be cached by a CDN for performance
+- Os dados veem de um CMS headless
+- Os dados vem de um banco de dados
+- Os dados vem de um sistema de arquivos
+- Os dados podem ser publicamente salvos em cache 
+- A página precisa ser pré-renderizada (para SEO) e ser muito rápida — `getStaticProps` geraarquivos `HTML` e `JSON`, ambos podem ser salvos em cache em um CDN para performance
 
-## When does getStaticPaths run
+## Quando getStaticPaths executa
 
-`getStaticPaths` will only run during build in production, it will not be called during runtime. You can validate code written inside `getStaticPaths` is removed from the client-side bundle [with this tool](https://next-code-elimination.vercel.app/).
+`getStaticPaths` será executado apenas durante a compilação para produção, ele não será executado durante o tempo de execução. Você pode conferir que o código escrito dentro de `getStaticPaths` é removido do bundle [com essa ferramenta](https://next-code-elimination.vercel.app/).
 
-### How does getStaticProps run with regards to getStaticPaths
+### Como getStaticProps é executado com relação a getStaticPaths
 
-- `getStaticProps` runs during `next build` for any `paths` returned during build
-- `getStaticProps` runs in the background when using `fallback: true`
-- `getStaticProps` is called before initial render when using `fallback: blocking`
+- `getStaticProps` executa durante o `next build` para quaisquer `caminhos (paths)` retornados durante a compilação
+- `getStaticProps` executa em segundo plano quando usado com `fallback: true`
+- `getStaticProps` é chamado andes da renderização inicial quando usando com `fallback: blocking`
 
-## Where can I use getStaticPaths
+## Quando você deve usar getStaticPaths
 
 - `getStaticPaths` **must** be used with `getStaticProps`
 - You **cannot** use `getStaticPaths` with [`getServerSideProps`](/docs/basic-features/data-fetching/get-server-side-props.md)
